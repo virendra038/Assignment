@@ -1,16 +1,74 @@
 
 <div>
-  <center><h2>Generes</h2></center>          
+  <center><h2>Track's Genres</h2></center>          
   <table class="table table-hover">
     <thead>
       <tr>
-        <th>Genere</th>
+        <th>Genre</th>
       </tr>
     </thead>
     <tbody>
-      <tr ng-repeat="x in data">
-        <td>{{x.name}}</td>
+      <tr ng-repeat="x in data | startFrom:currentPage*5 | limitTo:5">
+        <td ng-click="sg(x.id)">{{x.name}}</td>
       </tr>
     </tbody>
   </table>
 </div>
+ <p align="center"><input type="submit"  class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal" value="Create New Genre"></input></p>
+
+ <div class="modal fade" id="myModal" role="dialog">
+    <div class="modal-dialog modal-sm">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">Enter Genre Name</h4>
+        </div>
+        <div class="modal-body">
+          <input ng-model="newgen" type="text" class="form-control" style="height: 70px" placeholder="e.g. Bollywood" ></input>
+        </div>
+        <div class="modal-footer">
+          <button type="submit" ng-click="createg(newgen)" class="btn btn-default" data-dismiss="modal" >Create</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<p align="center"><button     ng-disabled="currentPage == 0" ng-click="currentPage=currentPage-1" class="btn btn-info"><b><<</b></button>
+
+            <button    ng-disabled="currentPage >= l" ng-click="currentPage=currentPage+1" class="btn btn-info"><b>>></b></button></p>
+            <br><br>
+            
+            <div id="q1" ng-show="ko==1">
+              <br>
+              <h1 align="center">Genre name</h1>
+             <h2 align="center"> {{sgen.name}}</h2>
+             <br><br>
+
+
+<p align="center"><input type="submit" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal1" value="Edit Genre"></input></p>
+
+
+              <div class="modal fade" id="myModal1" role="dialog">
+    <div class="modal-dialog modal-sm">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">Enter New Name</h4>
+        </div>
+        <div class="modal-body">
+          <input ng-model="newname" type="text" class="form-control" style="height: 70px" placeholder="Name Now : {{sgen.name}}" ></input>
+        </div>
+        <div class="modal-footer">
+          <button type="submit" ng-click="editg(sgen.id)" class="btn btn-default" data-dismiss="modal" >Done</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+            </div>
+
+
+           

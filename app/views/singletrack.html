@@ -1,0 +1,50 @@
+<table class="table table-bordered">
+    <thead>
+      <tr>
+        <th>Title</th>
+        <th>Generes</th>
+        <th>Rating</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr >
+        
+          <td>{{so.title}} </td>
+
+        <td ><p ng-repeat="y in so.genres  ">{{y.name}}</p></td>
+        
+        <td>{{so.rating}}</td>
+        
+      </tr>
+    </tbody>
+  </table>
+<br>
+<br>
+
+<p align="center"><input type="submit" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal3" value="Edit Track"></input></p>
+
+
+              <div class="modal fade" id="myModal3" role="dialog">
+    <div class="modal-dialog modal-sm">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">Enter The Details</h4>
+        </div>
+        <div class="modal-body">
+          <input ng-model="x.newtitle" type="text" class="form-control" style="height: 70px" placeholder="New Title : {{so.title}}" ></input>
+          <br>
+           <input ng-model="x.newrating" type="text" class="form-control" style="height: 70px" placeholder="New rating : {{so.rating}}" ></input>
+           <br>
+            <input ng-model="x.newgenre" type="text" class="form-control" style="height: 70px" placeholder="New Genre : {{so.genres.length}}" ></input>
+        </div>
+        <div class="modal-footer">
+          <button type="submit" ng-click="editt(so.id)" class="btn btn-default" data-dismiss="modal" >Done</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+            </div>

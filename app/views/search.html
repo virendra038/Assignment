@@ -1,0 +1,18 @@
+<div class="list-group-item">      
+  <table class="table table-hover">
+    <thead>
+      <tr>
+        <th>Title</th>
+        <th>Generes</th>
+        <th>Rating</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr ng-repeat="x in songs">
+        <td>{{x.title}}</td>
+        <td><p ng-repeat="y in x.genres">{{y.name}}</p></td>
+        <td>{{x.rating}}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>

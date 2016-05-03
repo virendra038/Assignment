@@ -15,14 +15,15 @@ angular
     'ngResource',
     'ngRoute',
     'ngSanitize',
-    'ngTouch'
+    'ngTouch',
+    'simplePagination'
   ])
   .config(function ($routeProvider) {
     $routeProvider
-      .when('/', {
-        templateUrl: 'views/main.html',
-        controller: 'MainCtrl'
-      })
+      // .when('/', {
+      //   templateUrl: 'views/main.html',
+      //   controller: 'MainCtrl'
+      // })
       .when('/track', {
         templateUrl: 'views/track.html',
         controller: 'trackCTRL'
@@ -31,7 +32,21 @@ angular
         templateUrl: 'views/genere.html',
         controller: 'genereCTRL'
       })
+      .when('/search', {
+        templateUrl: 'views/search.html',
+        controller: 'trackCTRL'
+      })
+
+      .when('/addSong', {
+        templateUrl: 'views/addSong.html',
+        controller: 'trackCTRL'
+      })
+
+      .when('/singletrack', {
+        templateUrl: 'views/singletrack.html',
+        controller: 'trackCTRL'
+      })
       .otherwise({
-        redirectTo: '/'
+        redirectTo: '/track'
       });
   });

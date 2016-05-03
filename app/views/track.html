@@ -1,6 +1,14 @@
-
-<div>
-  <center><h2>Tracks</h2></center>          
+    <center><h2>Music Tracks</h2></center>    
+    <div class="container">
+      <form role="form" ng-submit="search()" class="form-group" >
+      <input style="height: 50px;" type="text" ng-model="se" class="form-control" placeholder="Search the track"></input>
+      <br>
+      <p align="center"><input type="submit" class="btn btn-info" value="Search"></input></p>
+    </form>
+    </div>
+    <br>
+    <br>
+<div class="list-group-item">      
   <table class="table table-hover">
     <thead>
       <tr>
@@ -10,11 +18,25 @@
       </tr>
     </thead>
     <tbody>
-      <tr ng-repeat="x in data">
-        <td>{{x.title}}</td>
-        <td><p ng-repeat="y in x.genres">{{y.name}}</p></td>
-        <td>{{x.rating}}</td>
+      <tr ng-repeat="x in data | startFrom:currentPage*5 | limitTo:5">
+        
+          <td ng-click="st(x.id)">{{x.title}} </td>
+
+        <!-- <td ng-repeat="y in x.genres  ">{{y.name}}</td> -->
+        <td ng-click="st(x.id)">{{x.genres[0].name}}</td>
+        <td ng-click="st(x.id)">{{x.rating}}</td>
+        
       </tr>
     </tbody>
   </table>
 </div>
+<br>
+<br>
+
+            <p align="center"><button     ng-disabled="currentPage == 0" ng-click="currentPage=currentPage-1" class="btn btn-info"><b><<</b></button>
+
+            <button    ng-disabled="currentPage >= l" ng-click="currentPage=currentPage+1" class="btn btn-info"><b>>></b></button></p>
+<br>
+<br>
+<p align="center"><input type="submit" ng-click="addsong()" class="btn btn-info" value="Add New Track"></input></p>
+
