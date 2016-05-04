@@ -20,10 +20,7 @@ angular
   ])
   .config(function ($routeProvider) {
     $routeProvider
-      // .when('/', {
-      //   templateUrl: 'views/main.html',
-      //   controller: 'MainCtrl'
-      // })
+    
       .when('/track', {
         templateUrl: 'views/track.html',
         controller: 'trackCTRL'

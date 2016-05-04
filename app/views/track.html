@@ -21,8 +21,6 @@
       <tr ng-repeat="x in data | startFrom:currentPage*5 | limitTo:5">
         
           <td ng-click="st(x.id)">{{x.title}} </td>
-
-        <!-- <td ng-repeat="y in x.genres  ">{{y.name}}</td> -->
         <td ng-click="st(x.id)">{{x.genres[0].name}}</td>
         <td ng-click="st(x.id)">{{x.rating}}</td>
         

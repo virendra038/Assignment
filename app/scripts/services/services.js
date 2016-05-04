@@ -71,7 +71,7 @@ angular.module('pawanApp')
     }
 
     service.addNewTrack = function(x){
-      console.log(x);
+      //console.log(x);
     var defercv = $q.defer();
     $http({
      method  : 'POST',
@@ -90,7 +90,7 @@ angular.module('pawanApp')
     return defercv.promise
   };
   service.strack = function(x){
-      console.log(x);
+     // console.log(x);
      var def = $q.defer();
      
     $http({
@@ -109,7 +109,7 @@ angular.module('pawanApp')
  };
 
   service.edittrack = function(f,o){
-      console.log(o);
+     // console.log(o);
      var edit = $q.defer();
      
     $http({
@@ -130,7 +130,7 @@ angular.module('pawanApp')
  };
 
  service.sgen = function(x){
-      console.log(x);
+     // console.log(x);
      var gg = $q.defer();
      
     $http({
@@ -149,7 +149,7 @@ angular.module('pawanApp')
  };
    
 service.cg = function(x){
-      console.log(x);
+     // console.log(x);
     var crg = $q.defer();
     $http({
      method  : 'POST',
@@ -170,8 +170,8 @@ service.cg = function(x){
 
 
   service.eg = function(y,x){
-      console.log(y);
-      console.log(x);
+      //console.log(y);
+     // console.log(x);
     var erg = $q.defer();
     $http({
      method  : 'POST',

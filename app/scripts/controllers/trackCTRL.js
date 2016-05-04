@@ -7,7 +7,7 @@ angular.module('pawanApp')
         .then(function(response){
             $scope.data = response;
             $scope.l = $scope.data.length;
-            console.log($scope.l);
+            //console.log($scope.l);
             $scope.currentPage=0;
            	$scope.pagination = Pagination.getNew();
 
@@ -21,11 +21,11 @@ angular.module('pawanApp')
         	.then(function(response){
         		$rootScope.songs = response;
         		$location.path("/search");
-            console.log(response);
+            //console.log(response);
             
-        },function(error){
-          alert("some error occured");
-        })
+            },function(error){
+                alert("some error occured");
+            })
         };
 
         $scope.addsong = function() {
@@ -38,42 +38,43 @@ angular.module('pawanApp')
         		"genres":[m.genres]
         	};
         	service.addNewTrack($scope.x)
-        		.then(function(response){
-        			console.log(response);
-        },function(error){
-          window.alert("some error occured");
-        })
+        	.then(function(response){
+        		//console.log(response);
+                $scope.st(response.id);
+            },function(error){
+                alert("some error occured");
+            })
 
         };
 
         $scope.st = function(id){
-        	console.log(id);
+        	//console.log(id);
         	service.strack(id)
-        		.then(function(response){
-        		$rootScope.so = response;
-        		$location.path("/singletrack");
-            console.log(response);
+        	.then(function(response){
+        	$rootScope.so = response;
+        	$location.path("/singletrack");
             
-        },function(error){
-          alert("some error occured");
-        })
+            },function(error){
+                alert("some error occured");
+            })
         };
 
         $scope.editt = function(u){
-        	console.log(u);
-        	 $scope.th ={
+        	//console.log(u);
+        	$scope.th ={
         		"title":$scope.x.newtitle,
         		"rating":$scope.x.newrating,
         		"genres":[$scope.x.newgenre]
         	};
         	service.edittrack(u,$scope.th)
-        		.then(function(response){
-      			 console.log(response);
+        	.then(function(response){
+      		//console.log(response);
+            alert("Successfully Edited");
+            $scope.st(response.id);
            
-            
-        },function(error){
-          alert("some error occured");
-        })
+            },function(error){
+                alert("some error occured");
+            })
         };
 
         

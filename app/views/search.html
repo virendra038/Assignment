@@ -9,9 +9,9 @@
     </thead>
     <tbody>
       <tr ng-repeat="x in songs">
-        <td>{{x.title}}</td>
-        <td><p ng-repeat="y in x.genres">{{y.name}}</p></td>
-        <td>{{x.rating}}</td>
+        <td ng-click="st(x.id)">{{x.title}}</td>
+        <td ng-click="st(x.id)"><p ng-repeat="y in x.genres">{{y.name}}</p></td>
+        <td ng-click="st(x.id)">{{x.rating}}</td>
       </tr>
     </tbody>
   </table>

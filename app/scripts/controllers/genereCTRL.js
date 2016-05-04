@@ -1,14 +1,14 @@
 'use strict';
 
 angular.module('pawanApp')
-  .controller('genereCTRL', function ($scope,service,Pagination) {
+  .controller('genereCTRL', function ($scope,service,Pagination,$location) {
 
   		service.getgenere()
   			.then(function(response){
             $scope.data = response;
             $scope.data = response;
             $scope.l = $scope.data.length;
-            console.log($scope.l);
+           // console.log($scope.l);
             $scope.currentPage=0;
            	$scope.pagination = Pagination.getNew();
   			},function(error){
@@ -16,12 +16,12 @@ angular.module('pawanApp')
   			})
 
   			 $scope.sg = function(id){
-        	console.log(id);
+        	//console.log(id);
         	service.sgen(id)
         		.then(function(response){
         			$scope.sgen = response;
         			$scope.ko = 1;
-            console.log(response);
+            //console.log(response);
             
         },function(error){
           alert("some error occured");
@@ -34,7 +34,8 @@ angular.module('pawanApp')
         	 };
         	service.cg($scope.name)
         		.then(function(response){
-            console.log(response);
+            //console.log(response);
+             alert("Successfully created please refresh");
             
         },function(error){
           alert("some error occured");
@@ -48,7 +49,10 @@ angular.module('pawanApp')
         	 };
         	service.eg(id,$scope.name)
         		.then(function(response){
-            console.log(response);
+            //console.log(response);
+            alert("Successfully edited please refresh");
+                  $scope.sg(response.id);
+            $location.path("/genere");
             
         },function(error){
           alert("some error occured");
